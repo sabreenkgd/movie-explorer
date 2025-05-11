@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Movie Explorer – Discover my Favorite Films
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Story
 
-## Available Scripts
+I've got an internship at a startup, and my task is to create a Movie Explorer App. This web application will allow users to search for movies, view details, and discover trending films. The app will fetch real-time data from the TMDb (The Movie Database) API to display information about movies.
 
-In the project directory, you can run:
+## Features Implemented
 
-### `npm start`
+This application allows users to explore a vast database of movies with the following features:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*   **User Authentication:**
+    *   User Login interface (simulated using local storage for persistence without a backend).
+    *   Basic logout functionality.
+*   **Movie Discovery:**
+    *   Displays a section for "Trending Movies" on the homepage, fetched directly from the TMDb API.
+    *   A search bar allowing users to type a movie name and get relevant real-time search results.
+*   **Movie Information Display:**
+    *   Search results and trending movies are displayed in a responsive grid of movie posters.
+    *   Each movie card shows the movie's title, release year, and TMDb rating.
+    *   Clicking on any movie card navigates to a detailed view.
+*   **Detailed Movie View:**
+    *   Comprehensive information including the movie's overview, genres, and primary cast members.
+    *   A direct link to watch the movie's trailer on YouTube (if available via TMDb).
+*   **User Experience & Personalization:**
+    *   Light/Dark mode toggle for enhanced user comfort, with preference saved in local storage.
+    *   "Load More" button for paginating through movie search results, offering a user-friendly alternative to infinite scroll.
+    *   The user's last searched movie term is saved in local storage for quick recall.
+    *   Users can save their favorite movies to a persistent list, also stored in local storage.
+    *   A dedicated "Favorites" page to view all saved movies.
+*   **API Integration & Error Handling:**
+    *   Seamless integration with The Movie Database (TMDb) API (v3) for all movie data.
+    *   Graceful handling of API errors with user-friendly messages displayed in the UI.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technical Stack
 
-### `npm test`
+*   **Frontend:** React (with Create React App)
+*   **Routing:** React Router DOM
+*   **HTTP Client:** Axios (for API requests)
+*   **UI Components & Styling:** Material-UI (MUI)
+*   **State Management:** React Context API (for theme, authentication, and favorites)
+*   **API:** The Movie Database (TMDb) API v3
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Setup
 
-### `npm run build`
+To set up and run this project locally, please follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/sabreenkgd/LoonsTask
+    ```
+2.  **Navigate into the project directory:**
+    ```bash
+    cd movie-explorer
+    ```
+3.  **Install dependencies:**
+    Using npm:
+    ```bash
+    npm install
+    ```
+    Or using yarn:
+    ```bash
+    yarn install
+    ```
+4.  **Set up Environment Variables:**
+    *   Create a `.env` file in the root of the project directory (e.g., `movie-explorer/.env`).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+5.  **Start the development server:**
+    Using npm:
+    ```bash
+    npm start
+    ```
+    Or using yarn:
+    ```bash
+    yarn start
+    ```
+    The application will typically open in your browser at `http://localhost:3000`.
 
-### `npm run eject`
+## API Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This application utilizes **The Movie Database (TMDb) API (Version 3)**.
+*   An API key is required for fetching data. Please refer to the "Project Setup" section for instructions on how to configure it.
+*   Key TMDb API endpoints used:
+    *   `/trending/movie/{time_window}` for trending movies.
+    *   `/search/movie` for movie search results.
+    *   `/movie/{movie_id}` for detailed movie information.
+    *   `/movie/{movie_id}/credits` for cast information.
+    *   `/movie/{movie_id}/videos` for trailer information.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Code Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The `src` folder is organized as follows:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+*   `src/components/`: Contains reusable UI components (e.g., `MovieCard.js`, `Navbar.js`, `SearchBar.js`).
+*   `src/pages/`: Contains top-level page components corresponding to routes (e.g., `HomePage.js`, `MovieDetailsPage.js`, `LoginPage.js`).
+*   `src/contexts/`: Manages global state using React Context API (e.g., `AuthContext.js`, `MovieContext.js`, `ThemeContext.js`).
+*   `src/services/`: Handles API communication logic (e.g., `tmdbService.js`).
+*   `src/App.js`: The main application component, responsible for routing and global providers.
+*   `src/index.js`: The entry point of the React application.
 
-## Learn More
+## Live Demo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Link to be added after deployment]
