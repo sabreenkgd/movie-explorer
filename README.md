@@ -60,4 +60,4 @@ git clone https://gitlab.com/sabreenkgd-group/movie-explorer.git
 
 ## 🌍 Live Demo
 
-🔗 [Live Site](https://movie-explorer-username.vercel.app)
+🔗 Live Site:(https://movie-explorer-brown-ten.vercel.app/)
